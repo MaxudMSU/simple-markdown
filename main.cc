@@ -1,3 +1,5 @@
+// TODO: Add full help file to print it via -h option.
+
 #include <errno.h>
 #include <getopt.h>
 #include <sys/ioctl.h>

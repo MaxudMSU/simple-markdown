@@ -1,15 +1,12 @@
-#include <fcntl.h>
+#include <errno.h>
+#include <getopt.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <wchar.h>
 
-#include <errno.h>
 #include <cstring>
-#include <getopt.h>
-
 #include <iostream>
 #include <locale>
-
 
 #include "containers.h"
 #include "text_viewer.h"
@@ -41,11 +38,11 @@ int main(int argc, char *argv[]){
   FILE* stream = stdin;
 
   while((opt = getopt_long(argc, argv, opts, long_opt, &optIdx)) != -1){
-    switch(opt){
+    switch (opt) {
       case 'f':
         filename = optarg;
         stream = fopen(filename, "r");
-        if(stream == nullptr){
+        if (stream == nullptr){
             std::cerr << "Can't open file '" << filename << "': " << strerror(errno);
             break;
         }

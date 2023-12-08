@@ -1,7 +1,10 @@
 #include "num_list.h"
 
-#include <string.h>
+#include <wchar.h>
+
 #include <iostream>
+
+#include "containers.h"
 
 NumList::NumList(const NewString& str, wchar_t* marker, int nesting){
   nesting_ = nesting;

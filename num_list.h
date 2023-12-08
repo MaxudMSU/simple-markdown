@@ -1,9 +1,8 @@
 #ifndef NUM_LIST_H
 #define NUM_LIST_H
 
-#include <iostream>
-
 #include "abstract_text.h"
+#include "containers.h"
 
 class NumList : public Abstract_text{
  public:

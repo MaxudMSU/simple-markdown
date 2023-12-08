@@ -39,9 +39,9 @@ class NewString{
 		this->append(string.str_, string.length() - 1);
 	};
 	wchar_t& operator[](unsigned long ind) const {
-		if (ind < length_)
+		if (ind < length_) {
 			return str_[ind];
-    else{
+    } else {
       std::cerr << "index out of range\n"; // походу надо throw делать
       exit(0);
     }

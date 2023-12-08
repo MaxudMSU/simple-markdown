@@ -1,10 +1,8 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-#include <wchar.h>
-#include <iostream>
-
 #include "abstract_text.h"
+#include "containers.h"
 
 class Header : public Abstract_text{
  public:

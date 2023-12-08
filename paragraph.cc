@@ -1,7 +1,10 @@
 #include "paragraph.h"
 
+#include <wchar.h>
+
 #include <iostream>
-#include <cstring>
+
+#include "containers.h"
 
 Paragraph::Paragraph(const NewString& str, bool is_start){
   is_start_ = is_start;

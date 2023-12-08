@@ -1,16 +1,11 @@
 #ifndef TEXT_VIEWER_H
 #define TEXT_VIEWER_H
 
-#include <wchar.h>
 #include <vector>
 
+#include "abstract_text.h"
 #include "containers.h"
-#include "paragraph.h"
-#include "header.h"
-#include "marked_list.h"
-#include "num_list.h"
-#include "code_block.h"
-#include "line_break.h"
+
 
 class TextViewer {
  public:

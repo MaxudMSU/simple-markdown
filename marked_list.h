@@ -1,10 +1,8 @@
 #ifndef MARKED_LIST_H
 #define MARKED_LIST_H
 
-#include <wchar.h>
-#include <iostream>
-
 #include "abstract_text.h"
+#include "containers.h"
 
 class MarkedList : public Abstract_text{
  public:

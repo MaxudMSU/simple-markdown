@@ -2,6 +2,15 @@
 
 #include "text_viewer.h"
 
+#include <vector>
+
+#include "paragraph.h"
+#include "header.h"
+#include "marked_list.h"
+#include "num_list.h"
+#include "code_block.h"
+#include "line_break.h"
+
 bool is_digit(wchar_t c){
   return (c >= L'0' && c <= L'9');
 }
@@ -41,7 +50,9 @@ TextViewer::TextViewer(FILE* stream){
         prev_line = new NewString();
         nesting = 0;
         int i = 2;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L'\0';
         prev_line->append(line+2, i-3);
         check = 1;
@@ -64,7 +75,9 @@ TextViewer::TextViewer(FILE* stream){
           prev_line = new NewString();
           nesting = 0;
           i += 2;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line+ni, i-1-ni);
           check = 3;
@@ -73,7 +86,9 @@ TextViewer::TextViewer(FILE* stream){
         else{
           prev_line = new NewString();
           int i = 0;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line, i-1);
 
@@ -94,7 +109,9 @@ TextViewer::TextViewer(FILE* stream){
       else {
         prev_line = new NewString();
         int i = 0;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L' ';
         line[i] = L'\0';
         prev_line->append(line, i);
@@ -122,7 +139,9 @@ TextViewer::TextViewer(FILE* stream){
         prev_line = new NewString();
         nesting = 0;
         int i = 2;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L'\0';
         prev_line->append(line+2, i-3);
         check_line_break = 1;
@@ -146,7 +165,9 @@ TextViewer::TextViewer(FILE* stream){
           prev_line = new NewString();
           nesting = 0;
           i += 2;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line+ni, i-1-ni);
           check = 3;
@@ -176,7 +197,9 @@ TextViewer::TextViewer(FILE* stream){
           int half_count = counter/2;
           nesting = half_count > max_nest ? max_nest : half_count;
           int i = counter;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line+counter+2, i-3-counter);
           break;
@@ -201,7 +224,9 @@ TextViewer::TextViewer(FILE* stream){
             
             prev_line = new NewString();
             i += 2;
-            while (line[i++] != L'\n');
+            while (line[i++] != L'\n') {
+              // считаем длину строки
+            }
             line[i-1] = L'\0';
             prev_line->append(line+ni, i-1-ni);
             check = 3;
@@ -209,7 +234,9 @@ TextViewer::TextViewer(FILE* stream){
           }
           else{
             int i = 0;
-            while (line[i++] != L'\n');
+            while (line[i++] != L'\n') {
+              // считаем длину строки
+            }
             line[i-1] = L'\0';
             prev_line->append(line, i-1);
 
@@ -220,7 +247,9 @@ TextViewer::TextViewer(FILE* stream){
         }
         else{
           int i = 0;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line, i-1);
           break;
@@ -228,7 +257,9 @@ TextViewer::TextViewer(FILE* stream){
       }
       else{
         int i = 0;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L'\0';
         prev_line->append(line, i-1);
         break;
@@ -254,7 +285,9 @@ TextViewer::TextViewer(FILE* stream){
         prev_line = new NewString();
         nesting = 0;
         int i = 2;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L'\0';
         prev_line->append(line+2, i-3);
         check = 1;
@@ -280,7 +313,9 @@ TextViewer::TextViewer(FILE* stream){
           prev_line = new NewString();
           nesting = 0;
           i += 2;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line+ni, i-1-ni);
           check = 3;
@@ -288,7 +323,9 @@ TextViewer::TextViewer(FILE* stream){
         }
         else{
           int i = 0;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line, i-1);
 
@@ -311,7 +348,9 @@ TextViewer::TextViewer(FILE* stream){
           int half_count = counter/2;
           nesting = half_count > max_nest ? max_nest : half_count;
           int i = counter;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line+counter+2, i-3-counter);
           check = 1;
@@ -338,7 +377,9 @@ TextViewer::TextViewer(FILE* stream){
             
             prev_line = new NewString();
             i += 2;
-            while (line[i++] != L'\n');
+            while (line[i++] != L'\n') {
+              // считаем длину строки
+            }
             line[i-1] = L'\0';
             prev_line->append(line+ni, i-1-ni);
             check = 3;
@@ -346,7 +387,9 @@ TextViewer::TextViewer(FILE* stream){
           }
           else{
             int i = 0;
-            while (line[i++] != L'\n');
+            while (line[i++] != L'\n') {
+              // считаем длину строки
+            }
             line[i-1] = L'\0';
             prev_line->append(line, i-1);
 
@@ -357,7 +400,9 @@ TextViewer::TextViewer(FILE* stream){
         }
         else{
           int i = 0;
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line, i-1);
           break;
@@ -365,7 +410,9 @@ TextViewer::TextViewer(FILE* stream){
       }
       else{
         int i = 0;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L'\0';
         prev_line->append(line, i-1);
 
@@ -388,7 +435,9 @@ TextViewer::TextViewer(FILE* stream){
       }
       else if (line[0] == L'-'){
         int i = 1;
-        while (line[i++] == L'-');
+        while (line[i++] == L'-') { 
+          // считаем длину строки
+        }
         if ((i >= 7) && (line[i-1] == L'\n')){
           check_line_break = 1;
           text_.push_back(new Header(prev_line->get_str(), 0));
@@ -398,7 +447,9 @@ TextViewer::TextViewer(FILE* stream){
           break;
         }
         else{
-          while (line[i++] != L'\n');
+          while (line[i++] != L'\n') {
+            // считаем длину строки
+          }
           line[i-1] = L'\0';
           prev_line->append(line, i-1);
           check_line_break = 1;
@@ -407,7 +458,9 @@ TextViewer::TextViewer(FILE* stream){
       }
       else{
         int i = 0;
-        while (line[i++] != L'\n');
+        while (line[i++] != L'\n') {
+          // считаем длину строки
+        }
         line[i-1] = L' ';
         line[i] = L'\0';
         prev_line->append(line, i);

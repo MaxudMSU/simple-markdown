@@ -1,8 +1,8 @@
 #ifndef LINE_BREAK_H
 #define LINE_BREAK_H
 
-#include <wchar.h>
 #include "abstract_text.h"
+#include "containers.h"
 
 class LineBreak : public Abstract_text{
  public:
